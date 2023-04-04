@@ -10,13 +10,14 @@ class ReligionsSql:
     def build(self, path):
         with open(path, "w") as f:
             f.write("\n\n\n".join((
-                self.icon_texture_atlases(),
-                self.icon_font_textures(),
-                self.icon_font_mapping(),
+                self.table_icon_texture_atlases(),
+                self.table_icon_font_textures(),
+                self.table_icon_font_mapping(),
+                self.table_religions(),
             )))
         return Modfile(path)
 
-    def icon_texture_atlases(self):
+    def table_icon_texture_atlases(self):
         return SqlInsert(
             "IconTextureAtlases",
             {
@@ -29,7 +30,7 @@ class ReligionsSql:
             self.atlas.thumbnail_sizes,
         ).to_str()
 
-    def icon_font_textures(self):
+    def table_icon_font_textures(self):
         return SqlInsert(
             "IconFontTextures",
             {
@@ -38,13 +39,27 @@ class ReligionsSql:
             },
         ).to_str()
 
-    def icon_font_mapping(self):
+    def table_icon_font_mapping(self):
         return SqlInsert(
             "IconFontMapping",
             {
                 "IconName": lambda religion: f"ICON_RELIGION_{religion.key}",
                 "IconFontTexture": "ICON_FONT_TEXTURE_HEATHENS_MASTER",
                 "IconMapping": lambda religion: religion.index,
+            },
+            self.religions,
+        ).to_str()
+
+    def table_religions(self):
+        return SqlInsert(
+            "Religions",
+            {
+                "Type": lambda religion: f"RELIGION_{religion.key}",
+                "Description": lambda religion: f"TXT_KEY_RELIGION_{religion.key}",
+                "Civilopedia": lambda religion: f"TXT_KEY_RELIGION_{religion.key}_PEDIA",
+                "IconAtlas": "HEATHENS_MASTER_ATLAS",
+                "PortraitIndex": self.religions.index,
+                "IconString": lambda religion: f"[ICON_RELIGION_{religion.key}]",
             },
             self.religions,
         ).to_str()

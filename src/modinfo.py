@@ -14,7 +14,7 @@ class ModinfoXml:
 
         mod.append(ET.fromstring("""
             <Properties>
-                <Name>Grant's Heathen Religions</Name>
+                <Name>(Reforged) Grant's Heathen Religions</Name>
                 <Stability>Beta</Stability>
                 <Teaser>Adds 32 new religions to the game, nearly all heathen and ancient belief systems which have survived in some form to this day.</Teaser>
                 <Description>Adds 32 new religions to the game, nearly all heathen and ancient belief systems which have survived in some form to this day. Compatible with Tomatekh's Historical Religions.</Description>
