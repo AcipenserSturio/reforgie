@@ -11,7 +11,7 @@ class Atlas:
 
         self.religions = religions
 
-        self.cols = min(len(religions) + 1, ATLAS_COLS)
+        self.cols = min(len(religions), ATLAS_COLS)
         self.rows = len(religions) // ATLAS_COLS + 1
         self.w = self.cols * ICON_SIZE
         self.h = self.rows * ICON_SIZE
@@ -28,11 +28,11 @@ class Atlas:
         self.draw()
 
         files = [
-            self.thumbnail(size, directory / f"atlas{size}.dds")
+            self.thumbnail(size, directory / f"atlas_{size}.dds")
             for size in self.thumbnail_sizes
         ]
         files.append(
-            self.thumbnail(FONT_SIZE, directory / f"heathenfonticons.dds")
+            self.thumbnail(FONT_SIZE, directory / f"font_icons.dds")
         )
         return files
 

@@ -32,9 +32,9 @@ class Mod:
         files.extend((
             *atlas.build(BUILD_DIR / "art"),
             text.build(BUILD_DIR / "core" / "en_us.xml"),
-            sql.build(BUILD_DIR / "core" / "religionscore.sql"),
-            font_icons.build(BUILD_DIR / "art" / "heathenfonticons.ggxml"),
+            sql.build(BUILD_DIR / "core" / "religions_core.sql"),
+            font_icons.build(BUILD_DIR / "art" / "font_icons.ggxml"),
         ))
 
         modinfo = ModinfoXml(files)
-        modinfo.build(BUILD_DIR / "grant's heathen religions (v 1).modinfo")
+        modinfo.build(BUILD_DIR / "reforged_religion_pack.modinfo")

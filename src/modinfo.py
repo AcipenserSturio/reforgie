@@ -14,11 +14,11 @@ class ModinfoXml:
 
         mod.append(ET.fromstring("""
             <Properties>
-                <Name>(Reforged) Grant's Heathen Religions</Name>
+                <Name>(Reforged) Religion Pack</Name>
                 <Stability>Beta</Stability>
-                <Teaser>Adds 32 new religions to the game, nearly all heathen and ancient belief systems which have survived in some form to this day.</Teaser>
-                <Description>Adds 32 new religions to the game, nearly all heathen and ancient belief systems which have survived in some form to this day. Compatible with Tomatekh's Historical Religions.</Description>
-                <Authors>Grant</Authors>
+                <Teaser>Very modular pack, adding (1) new religions to the game.</Teaser>
+                <Description>Very modular pack, adding (1) new religions to the game.</Description>
+                <Authors>AcipenserSturio</Authors>
                 <HideSetupGame>0</HideSetupGame>
                 <AffectsSavedGames>1</AffectsSavedGames>
                 <MinCompatibleSaveVersion>0</MinCompatibleSaveVersion>
