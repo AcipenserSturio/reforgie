@@ -1,5 +1,4 @@
 import xml.etree.ElementTree as ET
-import hashlib
 from pathlib import Path
 import random
 
@@ -7,8 +6,8 @@ BUILD_DIR = Path("./build/")
 
 
 class ModinfoXml:
-    def __init__(self, mod):
-        self.mod = mod
+    def __init__(self, files):
+        self.files = files
 
     def build(self, path):
         mod = ET.Element("Mod", {"id": self.generate_id(), "version": "1"})
@@ -37,28 +36,18 @@ class ModinfoXml:
         ET.SubElement(mod, "References")
         ET.SubElement(mod, "Blocks")
         files = ET.SubElement(mod, "Files")
-        for size in self.mod.atlas.thumbnail_sizes:
-            atlas_path = f"art/atlas{size}.dds"
-            filetag = ET.SubElement(files, "File", {"md5": md5(atlas_path), "import": "1"})
-            filetag.text = atlas_path
 
-        for filename in [
-                "art/heathenfonticons.dds",
-                "art/heathenfonticons.ggxml",
-                "core/religionscore.sql",
-                "core/en_us.xml",
-            ]:
-            filetag = ET.SubElement(files, "File", {"md5": md5(filename), "import": "1" if "art" in filename else "0"})
-            filetag.text = filename
+        for modfile in self.files:
+            tag = modfile.build_import()
+            files.append(tag)
 
-        mod.append(ET.fromstring("""
-            <Actions>
-                <OnModActivated>
-                <UpdateDatabase>core/religionscore.sql</UpdateDatabase>
-                <UpdateDatabase>core/en_us.xml</UpdateDatabase>
-                </OnModActivated>
-            </Actions>
-        """))
+        actions = ET.SubElement(mod, "Actions")
+        onmod = ET.SubElement(actions, "OnModActivated")
+
+        for modfile in self.files:
+            tag = modfile.build_update()
+            if tag is not None: # Unbelievably, ET.Element() is Falsy
+                onmod.append(tag)
 
         tree = ET.ElementTree(mod)
         ET.indent(tree, space = "  ")
@@ -71,7 +60,3 @@ class ModinfoXml:
 def randhex(length):
     return "".join(random.choice("0123456789abcdef") for _ in range(length))
 
-
-def md5(filename):
-    with open(BUILD_DIR / filename, "rb") as f:
-        return hashlib.md5(f.read()).hexdigest()

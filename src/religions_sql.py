@@ -1,4 +1,6 @@
+from .modfile import Modfile
 from .sql_insert import SqlInsert
+
 
 class ReligionsSql:
     def __init__(self, religions, atlas):
@@ -12,6 +14,7 @@ class ReligionsSql:
                 self.icon_font_textures(),
                 self.icon_font_mapping(),
             )))
+        return Modfile(path)
 
     def icon_texture_atlases(self):
         return SqlInsert(

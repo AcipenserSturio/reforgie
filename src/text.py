@@ -1,5 +1,7 @@
 import xml.etree.ElementTree as ET
 
+from .modfile import Modfile
+
 class TextXml:
     def __init__(self, religions):
         self.religions = religions
@@ -12,4 +14,6 @@ class TextXml:
 
         tree = ET.ElementTree(gamedata)
         ET.indent(tree, space = "    ")
+
         tree.write(path)
+        return Modfile(path)

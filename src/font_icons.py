@@ -1,5 +1,7 @@
 import xml.etree.ElementTree as ET
 
+from .modfile import Modfile
+
 FONT_SIZE = 22
 
 class FontIcons:
@@ -70,4 +72,4 @@ class FontIcons:
         tree = ET.ElementTree(glyphgen)
         ET.indent(tree, space = "    ")
         tree.write(path)
-
+        return Modfile(path)

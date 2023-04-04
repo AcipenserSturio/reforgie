@@ -1,5 +1,7 @@
 from PIL import Image
 
+from .modfile import Modfile
+
 ATLAS_COLS = 8
 ICON_SIZE = 256
 FONT_SIZE = 22
@@ -22,12 +24,18 @@ class Atlas:
         for religion in self.religions:
             self.atlas.paste(religion.icon.img(), (religion.icon.w, religion.icon.h))
 
-    def save(self, path):
+    def build(self, directory):
         self.draw()
 
-        for size in self.thumbnail_sizes:
-            thumbnail = self.atlas.resize((self.cols * size, self.rows * size))
-            thumbnail.save(path / f"atlas{size}.dds")
+        files = [
+            self.thumbnail(size, directory / f"atlas{size}.dds")
+            for size in self.thumbnail_sizes
+        ]
+        files.append(
+            self.thumbnail(FONT_SIZE, directory / f"heathenfonticons.dds")
+        )
+        return files
 
-        thumbnail = self.atlas.resize((self.cols * FONT_SIZE, self.rows * FONT_SIZE))
-        thumbnail.save(path / f"heathenfonticons.dds")
+    def thumbnail(self, size, path):
+        self.atlas.resize((self.cols * size, self.rows * size)).save(path)
+        return Modfile(path)
