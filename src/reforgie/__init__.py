@@ -1,4 +1,4 @@
-from src.mod import Mod
+from .mod import Mod
 
 
 if __name__ == "__main__":
