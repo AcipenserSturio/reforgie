@@ -1,0 +1,14 @@
+name = "Reykjavik"
+name_short = "Reykjavik"
+adj = "Icelander"
+pedia = """Reykjavik is the capital and largest city of Iceland. Its latitude at 64°08' N makes it the world's northernmost capital of a sovereign state. It is located in southwestern Iceland, on the southern shore of Faxaflói Bay. With a population of around 120,000 (and over 200,000 in the Greater Reykjavík Area) it is the heart of Iceland's economic and governmental activity.[NEWLINE]Reykjavik is believed to be the location of the first permanent settlement in Iceland, which Ingólfur Arnarson is said to have established around 870. Until the 18th century, there was no urban development in the city location. The city was founded in 1786 as an official trading town and grew steadily over the next decades, as it transformed into a regional and later national centre of commerce, population and governmental activities. (from wikipedia)"""
+color = ["000000", "ffffff"]
+artstyle = "European"
+trait = "Militaristic"
+capital = "Reykjavik"
+
+[flavors]
+defense = 5
+city_defense = 10
+wonder = 0
+expansion = 0
