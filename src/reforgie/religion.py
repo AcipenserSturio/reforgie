@@ -1,38 +1,36 @@
 from pathlib import Path
-import xml.etree.ElementTree as ET
-import tomli
 
+from .icons import icon_handler
+from .gamedata import gamedata
+from .text import text
 from .icon import Icon
 
-MOD_DIR = Path("./mods/religions/")
+def religion(
+    index: int,
+    path: Path,
+    icon_path: Path,
+    data: dict,
+):
+    key = path.stem.replace("-", "_").upper()
+    fonticon_name = f"ICON_RELIGION_{key}"
 
-class Religion:
-    def __init__(self, index, name):
-        with open(MOD_DIR / (name + ".toml"), mode="rb") as fp:
-            religion_raw = tomli.load(fp)
-        self._short = name
-        self.index = index
+    icon = Icon(icon_path, fonticon_name)
+    atlas_name, icon_id = icon_handler.add_icon(icon)
+    icon_handler.add_fonticon(icon)
 
-        self.key = self._short.replace("-", "_").upper()
+    name = text(f"TXT_KEY_{key}", data["name"])
+    adj = text(f"TXT_KEY_{key}_ADJ", data["adj"])
+    pedia = text(f"TXT_KEY_{key}_PEDIA", data["pedia"])
 
-        self.name = religion_raw["name"]
-        self.adj = religion_raw["adj"]
-        self.pedia = religion_raw["pedia"]
-        self.icon = Icon(index, self.icon_path())
-
-    def icon_path(self):
-        return MOD_DIR / (self._short + ".png")
-
-    def to_xml(self):
-        return (
-            row(self.name, f"TXT_KEY_RELIGION_{self.key}"),
-            row(self.adj, f"TXT_KEY_RELIGION_{self.key}_ADJ"),
-            row(self.pedia, f"TXT_KEY_RELIGION_{self.key}_PEDIA"),
-        )
-
-
-def row(text, key):
-    row = ET.Element("Row", attrib={"Tag": key})
-    entry = ET.SubElement(row, "Text")
-    entry.text = text
-    return row
+    # adj unused? investigate later
+    gamedata.add(
+        "Religions",
+        {
+            "Type": f"RELIGION_{key}",
+            "Description": name,
+            "Civilopedia": pedia,
+            "IconAtlas": atlas_name,
+            "PortraitIndex": icon_id,
+            "IconString": f"[{fonticon_name}]",
+        }
+    )

@@ -1,7 +1,5 @@
 import xml.etree.ElementTree as ET
 
-from .modfile import Modfile
-
 FONT_SIZE = 22
 
 class FontIcons:

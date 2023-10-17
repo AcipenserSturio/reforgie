@@ -1,15 +1,15 @@
 from pathlib import Path
+import tomli
+import shutil
 
-from .atlas import Atlas
-from .font_icons import FontIcons
-from .modfile import Modfile
+from .religion import religion
 from .modinfo import ModinfoXml
-from .religion import Religion
-from .religions_sql import ReligionsSql
-from .text import TextXml
+from .gamedata import gamedata
+from .icons import icon_handler
 
-MOD_DIR = Path("./mods/religions/")
+MOD_DIR = Path("./mods/")
 BUILD_DIR = Path("./build/")
+shutil.rmtree(BUILD_DIR)
 
 (BUILD_DIR).mkdir(exist_ok=True)
 (BUILD_DIR / "art").mkdir(exist_ok=True)
@@ -17,24 +17,12 @@ BUILD_DIR = Path("./build/")
 
 class Mod:
     def __init__(self):
+        for index, path in enumerate(sorted((MOD_DIR / "religions").glob("*.toml"))):
+            icon_path = MOD_DIR / "religions" / (path.stem + ".png")
+            with open(path, mode="rb") as fp:
+                religion(index, path, icon_path, tomli.load(fp))
 
-        religions = [
-            Religion(index, path.stem)
-            for index, path in enumerate(sorted(MOD_DIR.glob("*.toml")))
-        ]
-        files = []
+        icon_handler.build(BUILD_DIR / "art") # responsible for adding some gamedata too
+        gamedata.build(BUILD_DIR / "core")
 
-        atlas = Atlas(religions)
-        text = TextXml(religions)
-        sql = ReligionsSql(religions, atlas)
-        font_icons = FontIcons(atlas)
-
-        files.extend((
-            *atlas.build(BUILD_DIR / "art"),
-            text.build(BUILD_DIR / "core" / "en_us.xml"),
-            sql.build(BUILD_DIR / "core" / "religions_core.sql"),
-            font_icons.build(BUILD_DIR / "art" / "font_icons.ggxml"),
-        ))
-
-        modinfo = ModinfoXml(files)
-        modinfo.build(BUILD_DIR / "reforged_religion_pack.modinfo")
+        ModinfoXml(BUILD_DIR).build(BUILD_DIR / "reforged_religion_pack.modinfo")

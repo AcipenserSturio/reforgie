@@ -1,15 +1,16 @@
+from pathlib import Path
 from PIL import Image
 
-ATLAS_COLS = 8
-ICON_SIZE = 256
-
 class Icon:
-    def __init__ (self, index, path):
+    """
+    Specific icon. May be in multiple Atlases.
+    """
+    def __init__ (self, path: Path, key: str):
         self.path = path
-        self.col = index % ATLAS_COLS
-        self.row = index // ATLAS_COLS
-        self.w = self.col * ICON_SIZE
-        self.h = self.row * ICON_SIZE
+        self.key = key
+        self.indices = {} # Atlas: int
+        # self.indices is needed because
+        # the same icon may have a different index in any atlas.
 
     def img(self):
         return Image.open(self.path)
