@@ -2,7 +2,7 @@ from pathlib import Path
 from PIL import Image
 
 from .icon import Icon
-from .gamedata import gamedata
+from ..xml.gamedata import gamedata
 
 ATLAS_COLS = 8
 ICON_SIZE = 256

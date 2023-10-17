@@ -2,15 +2,19 @@ from pathlib import Path
 import tomli
 import shutil
 
-from .religion import religion
-from .modinfo import ModinfoXml
-from .gamedata import gamedata
-from .icons import icon_handler
+from .img.icons import icon_handler
+from .xml.gamedata import gamedata
+from .xml.religion import religion
+from .meta.modinfo import ModinfoXml
 
 MOD_DIR = Path("./mods/")
 BUILD_DIR = Path("./build/")
+
+# Make sure /build is removed
+(BUILD_DIR).mkdir(exist_ok=True)
 shutil.rmtree(BUILD_DIR)
 
+# Make basic structure
 (BUILD_DIR).mkdir(exist_ok=True)
 (BUILD_DIR / "art").mkdir(exist_ok=True)
 (BUILD_DIR / "core").mkdir(exist_ok=True)

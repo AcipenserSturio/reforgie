@@ -2,7 +2,7 @@ from pathlib import Path
 from PIL import Image
 import xml.etree.ElementTree as ET
 
-from .gamedata import gamedata
+from ..xml.gamedata import gamedata
 from .atlas import Atlas
 from .icon import Icon
 

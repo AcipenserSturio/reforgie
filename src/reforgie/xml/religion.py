@@ -1,9 +1,9 @@
 from pathlib import Path
 
-from .icons import icon_handler
+from ..img.icons import icon_handler
+from ..img.icon import Icon
 from .gamedata import gamedata
 from .text import text
-from .icon import Icon
 
 def religion(
     index: int,
