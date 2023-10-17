@@ -11,12 +11,14 @@ FONT_SIZE = 22
 class IconHandler:
     def __init__(self):
         self.atlas = Atlas(
-            "icons",
+            "atlas",
             "HEATHENS_MASTER_ATLAS",
-            [16, 24, 32, 45, 48, 64, 80, 128, 214, 256],
+            [16, 24, 32,
+             # 45,
+             48, 64, 80, 128, 214, 256],
         )
         self.font = Atlas(
-            "fonticons",
+            "font_icons",
             "ICON_FONT_TEXTURE_HEATHENS_MASTER",
             [FONT_SIZE],
             updates_IconTextureAtlases=False
@@ -32,10 +34,10 @@ class IconHandler:
         self.atlas.build(directory)
         self.font.build(directory)
         self.update_iconfonts()
-        self.ggxml(directory / "fonticons.ggxml")
+        self.ggxml(directory / "font_icons.ggxml")
 
     def update_iconfonts(self):
-        filename = "HeathenFontIcons"
+        filename = self.font.filename(FONT_SIZE).replace(".dds", "")
         gamedata.add(
             "IconFontTextures",
             {
@@ -58,7 +60,7 @@ class IconHandler:
         glyphgen = ET.Element("glyphgen")
 
         glyphgen.append(ET.fromstring(f"""
-            <textures width="{self.font.width}" height="{self.font.height}">
+            <textures width="{self.font.cols * FONT_SIZE}" height="{self.font.rows * FONT_SIZE}">
                 <texture name="" src="{self.font.filename(FONT_SIZE)}" allowcolor="1" alloweffects="1" inuse="1" />
             </textures>
         """))

@@ -30,6 +30,6 @@ class Gamedata:
     def build(self, BUILD_DIR: Path):
         for name, tree in self.data.items():
             ET.indent(tree, space = "    ")
-            tree.write(BUILD_DIR / f"{name}.xml")
+            tree.write(BUILD_DIR / f"{name}.xml", encoding="utf-8", xml_declaration=True)
 
 gamedata = Gamedata()

@@ -2,8 +2,8 @@ from .gamedata import gamedata
 
 def text(key: str, value: str) -> str:
     gamedata.add(
-        "Languages_en_US",
-        {"Value": value},
+        "Language_en_US",
+        {"Text": value.replace("\n", "[NEWLINE]")},
         {"Tag": key},
     )
     return key

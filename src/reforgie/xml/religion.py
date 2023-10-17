@@ -11,16 +11,16 @@ def religion(
     icon_path: Path,
     data: dict,
 ):
-    key = path.stem.replace("-", "_").upper()
+    key = path.stem.replace("-", "_").upper() # e.g. GNOSTICISM
     fonticon_name = f"ICON_RELIGION_{key}"
 
     icon = Icon(icon_path, fonticon_name)
     atlas_name, icon_id = icon_handler.add_icon(icon)
     icon_handler.add_fonticon(icon)
 
-    name = text(f"TXT_KEY_{key}", data["name"])
-    adj = text(f"TXT_KEY_{key}_ADJ", data["adj"])
-    pedia = text(f"TXT_KEY_{key}_PEDIA", data["pedia"])
+    name = text(f"TXT_KEY_RELIGION_{key}", data["name"])
+    adj = text(f"TXT_KEY_RELIGION_{key}_ADJ", data["adj"])
+    pedia = text(f"TXT_KEY_RELIGION_{key}_PEDIA", data["pedia"])
 
     # adj unused? investigate later
     gamedata.add(
