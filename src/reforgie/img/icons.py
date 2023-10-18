@@ -35,6 +35,9 @@ class IconHandler:
         self.ggxml(directory / "font_icons.ggxml")
 
     def update_iconfonts(self):
+        if not self.font.icons:
+            return
+
         filename = self.font.filename(FONT_SIZE).replace(".dds", "")
         gamedata.add(
             "IconFontTextures",
@@ -55,6 +58,9 @@ class IconHandler:
             )
 
     def ggxml(self, path: Path):
+        if not self.font.icons:
+            return
+
         glyphgen = ET.Element("glyphgen")
 
         glyphgen.append(ET.fromstring(f"""

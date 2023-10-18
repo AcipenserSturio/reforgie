@@ -1,0 +1,13 @@
+# Free City of Danzig (1920–1939)
+# https://en.wikipedia.org/wiki/Free_City_of_Danzig
+name = "Danzig"
+adj = "Danziger"
+capital = "Danzig"
+pedia = """The Free City of Danzig was a city-state under the protection and oversight of the League of Nations between 1920 and 1939, consisting of the Baltic Sea port of Danzig (now Gdańsk, Poland) and nearly 200 other small localities in the surrounding areas.
+
+Although predominantly German-populated, the territory was bound by the imposed union with Poland covering foreign policy, defence, customs, railways and post, while remaining distinct from both the post-war German Republic and the newly independent Polish Republic.
+
+After the German invasion of Poland in 1939, the Nazis abolished the Free City and incorporated the area into the newly formed Reichsgau of Danzig-West Prussia. The city was fully integrated into Poland as a result of the Potsdam Agreement, while members of the pre-war Polish ethnic minority started returning and new Polish settlers began to come."""
+color = ["ff0000", "00ff00"]
+artstyle = "European"
+trait = "Mercantile"

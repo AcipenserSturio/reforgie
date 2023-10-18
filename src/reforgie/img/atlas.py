@@ -50,6 +50,9 @@ class Atlas:
             self.atlas.paste(icon.img(), (w, h))
 
     def build(self, directory: Path):
+        if not self.icons: # empty atlas
+            return
+
         self.start()
         self.paste()
 

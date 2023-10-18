@@ -1,0 +1,11 @@
+# Liechtenstein (modern country)
+# https://en.wikipedia.org/wiki/Liechtenstein
+name = "Liechtenstein"
+adj = "Liechtensteiner"
+capital = "Vaduz"
+pedia = """Liechtenstein is a German-speaking and doubly landlocked country and microstate located in the Alps between Austria and Switzerland. It is the sixth smallest nation worldwide. Liechtenstein is a semi-constitutional monarchy headed by the prince of Liechtenstein.
+
+Liechtenstein is a member of the United Nations, the European Free Trade Association, and the Council of Europe. It is not a member of the European Union, but it participates in both the Schengen Area and the European Economic Area. It has a customs union and a monetary union with Switzerland."""
+color = ["ff0000", "00ff00"]
+artstyle = "European"
+trait = "Mercantile"

@@ -1,0 +1,13 @@
+# Sumerian city state
+# https://en.wikipedia.org/wiki/Uruk
+name = "Uruk"
+adj = "Uruk"
+capital = "Uruk"
+pedia = """Uruk, today known as Warka, was a city in the ancient Near East situated east of the present bed of the Euphrates River on the dried-up ancient channel of the Euphrates.
+
+Uruk played a leading role in the early urbanization of Sumer in the mid-4th millennium BC. King Gilgamesh, according to the chronology presented in the Sumerian King List (henceforth SKL), ruled Uruk in the 27th century BC.
+
+The city lost its prime importance around 2000 BC in the context of the struggle of Babylonia against Elam, but it remained inhabited throughout the Achaemenid (550–330 BC), Seleucid (312–63 BC) and Parthian (227 BC to AD 224) periods until it was finally abandoned shortly before or after the Islamic conquest of 633–638."""
+color = ["ff0000", "00ff00"]
+artstyle = "Mediterranean"
+trait = "Cultured"

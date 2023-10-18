@@ -1,0 +1,11 @@
+# Ancient Greek city state in Cyprus
+# https://en.wikipedia.org/wiki/Kition
+name = "Kition"
+adj = "Kition"
+capital = "Kition"
+pedia = """Kition was an Ancient Greek city-kingdom on the southern coast of Cyprus (in present-day Larnaca), one of the Ten city-kingdoms of Cyprus. According to the text on the plaque closest to the excavation pit of the Kathari site (as of 2013), it was established in the 13th century BC by Greek (Achaean) settlers, after the Trojan War.
+
+Its most famous, and probably only known, resident was Zeno of Citium, born c. 334 BC in Citium and founder of the Stoic school of philosophy which he taught in Athens from about 300 BC."""
+color = ["ff0000", "00ff00"]
+artstyle = "Mediterranean"
+trait = "Maritime"
