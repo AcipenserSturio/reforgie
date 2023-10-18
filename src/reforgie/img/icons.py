@@ -12,14 +12,12 @@ class IconHandler:
     def __init__(self):
         self.atlas = Atlas(
             "atlas",
-            "HEATHENS_MASTER_ATLAS",
-            [16, 24, 32,
-             # 45,
-             48, 64, 80, 128, 214, 256],
+            "ATLAS_AUTOCOMPOSED_MAIN",
+            [16, 24, 32, 45, 48, 64, 80, 128, 214, 256],
         )
         self.font = Atlas(
             "font_icons",
-            "ICON_FONT_TEXTURE_HEATHENS_MASTER",
+            "ICON_FONT_TEXTURE_AUTOCOMPOSED_MAIN",
             [FONT_SIZE],
             updates_IconTextureAtlases=False
         )

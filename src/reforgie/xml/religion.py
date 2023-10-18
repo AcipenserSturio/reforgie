@@ -19,10 +19,8 @@ def religion(
     icon_handler.add_fonticon(icon)
 
     name = text(f"TXT_KEY_RELIGION_{key}", data["name"])
-    adj = text(f"TXT_KEY_RELIGION_{key}_ADJ", data["adj"])
     pedia = text(f"TXT_KEY_RELIGION_{key}_PEDIA", data["pedia"])
 
-    # adj unused? investigate later
     gamedata.add(
         "Religions",
         {
