@@ -45,8 +45,10 @@ map = "map.png"
 [leader]
 name = "Grigory Stroganov"
 pedia = "This is a text about Grigory Stroganov in Civilopedia"
+trait_short = "Mineral Riches of Prikamye"
+trait = "Founding cities on Rivers or Hills spawns Salt. Producing more Salt than owning Cities gives +1 Global Happiness for each excess Salt."
 
-[leader.bias]
+[leader.personality]
 # Values stolen from Robert Blum for now
 VictoryCompetitiveness = 4
 WonderCompetitiveness = 6
@@ -62,7 +64,67 @@ Forgiveness = 9
 Chattiness = 7
 Meanness = 4
 
+[leader.flavors]
+# Values stolen from Robert Blum for now
+offense = 8
+defense = 3
+city_defense = 4
+military_training = 3
+recon = 7
+ranged = 8
+mobile = 4
+naval = 7
+naval_recon = 3
+naval_growth = 6
+naval_tile_improvement = 2
+air = 6
+expansion = 9
+growth = 8
+tile_improvement = 6
+infrastructure = 5
+production = 8
+gold = 2
+science = 7
+culture = 9
+happiness = 8
+great_people = 6
+wonder = 2
+religion = 3
+diplomacy = 9
+spaceship = 4
+water_connection = 4
+nuke = 8
+use_nuke = 4
+espionage = 8
+antiair = 9
+airlift = 5
+i_trade_destination = 9
+i_trade_origin = 8
+i_sea_trade_route = 5
+i_land_trade_route = 9
+archaeology = 4
+air_carrier = 4
+
+[leader.biases.major]
+# Values stolen from Robert Blum for now
+war = 7
+hostile = 3
+deceptive = 2
+guarded = 4
+afraid = 6
+friendly = 8
+neutral = 1
+
+[leader.biases.minor]
+# Values stolen from Robert Blum for now
+ignore = 1
+friendly = 9
+protective = 8
+conquest = 6
+bully = 3
+
 [leader.responses]
+# Values stolen from Robert Blum for now
 first_greeting = "Greetings, I am Robert Blum, and it is my mission to keep unified this great nation, Germany."
 defeated = "I die for freedom, may my country remember me."
 ai_dof_backstab = "Schweinehund. The more I know you, the more I despise you.[NEWLINE][NEWLINE]([COLOR_WARNING_TEXT]They have publicly denounced us! NOTE: You are not at war.[ENDCOLOR])"
