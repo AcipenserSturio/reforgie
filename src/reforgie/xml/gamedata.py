@@ -33,7 +33,7 @@ class Gamedata:
             tree.write(
                 BUILD_DIR / f"{name.lower()}.xml",
                 encoding="utf-8",
-                # xml_declaration=True,
+                xml_declaration=True,
             )
 
 gamedata = Gamedata()
