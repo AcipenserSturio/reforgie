@@ -4,6 +4,7 @@ from .gamedata import gamedata
 from .text import text
 from .color import color
 from .artstyle import ARTSTYLES
+from .leader_scene import leader_scene
 
 from ..img.icons import icon_handler
 from ..img.icon import Icon
@@ -84,6 +85,12 @@ def civ(
     icon_leader = Icon(path / data["art"]["leader"])
     atlas, icon_id = icon_handler.add_icon(icon_leader)
 
+    leaderscene = leader_scene(
+        ART_PATH,
+        f"""leader_scene_{leader_key.replace(" ", "_").lower()}.xml""",
+        to_dds(path / data["art"]["leader_scene"], ART_PATH, f"{key.lower()}_leader_scene.dds"),
+    )
+
     gamedata.add(
         "Leaders",
         {
@@ -92,7 +99,7 @@ def civ(
             "Description":              text(f"TXT_KEY_{leader_key}",            data["leader"]["name"]),
             "Civilopedia":              text(f"TXT_KEY_{leader_key}_PEDIA_TEXT", data["leader"]["pedia"]),
             # "CivilopediaTag":           ,
-            "ArtDefineTag":             f"""leader_scene_{leader_key.replace(" ", "_").lower()}.xml""", # TODO: generate leader scene
+            "ArtDefineTag":             leaderscene,
 
             "VictoryCompetitiveness":   data["leader"]["personality"]["VictoryCompetitiveness"],
             "WonderCompetitiveness":    data["leader"]["personality"]["WonderCompetitiveness"],
@@ -165,5 +172,23 @@ def civ(
         {
             "LeaderType": leader_key,
             "TraitType": f"""TRAIT_{leader_key}""",
+        }
+    )
+
+    # TODO: genuine unique units
+    gamedata.add(
+        "Civilization_UnitClassOverrides",
+        {
+            "CivilizationType": f"CIVILIZATION_{key}",
+            "UnitClassType": "UNITCLASS_PIKEMAN",
+            "UnitType": "UNIT_ZULU_IMPI",
+        }
+    )
+    gamedata.add(
+        "Civilization_UnitClassOverrides",
+        {
+            "CivilizationType": f"CIVILIZATION_{key}",
+            "UnitClassType": "UNITCLASS_MERCHANT",
+            "UnitType": "UNIT_VENETIAN_MERCHANT",
         }
     )

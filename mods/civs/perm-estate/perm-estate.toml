@@ -38,7 +38,7 @@ spies = [
 civ = "civ.png"
 alpha = "alpha.png"
 leader = "leader.png"
-screen = "screen.png"
+leader_scene = "scene.png"
 dom = "dom.png"
 map = "map.png"
 
