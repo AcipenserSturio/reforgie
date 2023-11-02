@@ -1,0 +1,57 @@
+[civ]
+desc = "Perm Estate"
+short_desc = "Perm"
+adj = "Perm"
+color = ["ff0000", "00ff00"]
+artstyle = "European"
+artdefine = "Russia" # Has to be a non-modded civ
+religion = "Eastern Orthodoxy"
+pedia = """This is a text about Perm in Civilopedia!"""
+dom = """This is a very long DOM text!"""
+
+cities = ["Chusovoy", "Oryol-Gorodok", "Novoye Usolye", "Ochor", "Sylva", "Lenva", "Yegoshikha", "Verkhniye Mully", "Lys'va", "Yaz'va", "Nizhniye Mully", "Domryanka"]
+spies = ["Yermak", "Spiridon", "Koz'ma", "Luka", "Fyodor", "Semyon", "Osip", "Anika"]
+
+[art]
+civ = "civ.png"
+alpha = "alpha.png"
+leader = "leader.png"
+screen = "screen.png"
+dom = "dom.png"
+map = "map.png"
+
+[leader]
+name = "Grigory Stroganov"
+pedia = "This is a text about Grigory Stroganov in Civilopedia"
+
+[leader.bias]
+# Values stolen from Robert Blum for now
+VictoryCompetitiveness = 4
+WonderCompetitiveness = 6
+MinorCivCompetitiveness = 8
+Boldness = 7
+DiploBalance = 6
+WarmongerHate = 5
+DenounceWillingness = 6
+DoFWillingness = 9
+Loyalty = 8
+Neediness = 4
+Forgiveness = 9
+Chattiness = 7
+Meanness = 4
+
+[leader.responses]
+first_greeting = "Greetings, I am Robert Blum, and it is my mission to keep unified this great nation, Germany."
+defeated = "I die for freedom, may my country remember me."
+ai_dof_backstab = "Schweinehund. The more I know you, the more I despise you.[NEWLINE][NEWLINE]([COLOR_WARNING_TEXT]They have publicly denounced us! NOTE: You are not at war.[ENDCOLOR])"
+attacked_hostile = "You movements and schemes do not concern me. Freedom and unity will prevail."
+dow_generic = "You are a threat to all free-loving men everywhere, you cannot be allowed to oppress your people any longer."
+response_to_being_denounced = "At least a deadly calm will descend on Germany for a while."
+work_against_someone = "It has become clear to me that you and I do not share the principles of freedom and unity, and as I embody them, you must be working against me.[NEWLINE][NEWLINE]([COLOR_WARNING_TEXT]They have publicly denounced us! NOTE: You are not at war.[ENDCOLOR])"
+work_with_us = "I believe you and I share the same principles. Perhaps we should form a tighter bond."
+
+[[unique.building]]
+name = "Varnitsa"
+
+[[unique.unit]]
+name = "Cossack Druzhina"

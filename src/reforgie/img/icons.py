@@ -7,14 +7,11 @@ from .atlas import Atlas
 from .icon import Icon
 
 FONT_SIZE = 22
+DEFAULT_SIZES = [16, 24, 32, 45, 48, 64, 80, 128, 214, 256]
 
 class IconHandler:
     def __init__(self):
-        self.atlas = Atlas(
-            "atlas",
-            "ATLAS_AUTOCOMPOSED_MAIN",
-            [16, 24, 32, 45, 48, 64, 80, 128, 214, 256],
-        )
+        self.atlases = {}
         self.font = Atlas(
             "font_icons",
             "ICON_FONT_TEXTURE_AUTOCOMPOSED_MAIN",
@@ -22,14 +19,23 @@ class IconHandler:
             updates_IconTextureAtlases=False
         )
 
-    def add_icon(self, icon: Icon) -> (str, int):
-        return (self.atlas.key, self.atlas.add(icon))
+    def get_atlas(self, name: str):
+        if name in self.atlases:
+            return self.atlases[name]
+        atlas = Atlas(name, f"ATLAS_AUTOCOMPOSED_{name.upper()}", DEFAULT_SIZES)
+        self.atlases[name] = atlas
+        return atlas
+
+    def add_icon(self, icon: Icon, atlas="main") -> (str, int):
+        atlas = self.get_atlas(atlas)
+        return (atlas.key, atlas.add(icon))
 
     def add_fonticon(self, icon: Icon):
         self.font.add(icon)
 
     def build(self, directory: Path):
-        self.atlas.build(directory)
+        for atlas in self.atlases.values():
+            atlas.build(directory)
         self.font.build(directory)
         self.update_iconfonts()
         self.ggxml(directory / "font_icons.ggxml")

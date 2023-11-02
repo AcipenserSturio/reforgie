@@ -6,6 +6,7 @@ from ..xml.gamedata import gamedata
 
 ATLAS_COLS = 8
 ICON_SIZE = 256
+MODNAME = "reforgie" #TODO: better guarantee of unique name
 
 class Atlas:
     def __init__(
@@ -74,7 +75,7 @@ class Atlas:
                 )
 
     def filename(self, size: int):
-        return f"{self.name}_{size}.dds"
+        return f"{MODNAME}_{self.name}_{size}.dds"
 
     def thumbnail(self, size: int, path: Path):
         return self.atlas.resize((self.cols * size, self.rows * size)).save(path)

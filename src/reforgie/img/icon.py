@@ -5,7 +5,7 @@ class Icon:
     """
     Specific icon. May be in multiple Atlases.
     """
-    def __init__ (self, path: Path, key: str):
+    def __init__ (self, path: Path, key: str = None):
         self.path = path
         self.key = key
         self.indices = {} # Atlas: int

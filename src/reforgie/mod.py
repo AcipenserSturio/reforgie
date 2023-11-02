@@ -6,6 +6,7 @@ from .img.icons import icon_handler
 from .xml.gamedata import gamedata
 from .xml.religion import religion
 from .xml.citystate import citystate
+from .xml.civ import civ
 from .meta.modinfo import ModinfoXml
 
 MOD_DIR = Path("./mods/")
@@ -23,13 +24,18 @@ shutil.rmtree(BUILD_DIR)
 class Mod:
     def __init__(self):
         # for index, path in enumerate(sorted((MOD_DIR / "religions").glob("*.toml"))):
-        #     icon_path = MOD_DIR / "religions" / (path.stem + ".png")
+        #     icon_path = MOD_DIR / "religions" / f"{path.stem}.png"
         #     with open(path, mode="rb") as fp:
         #         religion(index, path, icon_path, tomli.load(fp))
 
-        for path in sorted((MOD_DIR / "citystates").glob("*.toml")):
-            with open(path, mode="rb") as fp:
-                citystate(path, tomli.load(fp))
+        for path in sorted((MOD_DIR / "civs").iterdir()):
+            civ_path = path / f"{path.stem}.toml"
+            with open(civ_path, mode="rb") as fp:
+                civ(path, tomli.load(fp))
+
+        # for path in sorted((MOD_DIR / "citystates").glob("*.toml")):
+        #     with open(path, mode="rb") as fp:
+        #         citystate(path, tomli.load(fp))
 
         icon_handler.build(BUILD_DIR / "art") # responsible for adding some gamedata too
         gamedata.build(BUILD_DIR / "core")

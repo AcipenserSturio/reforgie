@@ -3,16 +3,7 @@ from pathlib import Path
 from .gamedata import gamedata
 from .text import text
 from .color import color
-
-ARTSTYLES = {
-    "European": ("_EURO", "EUROPEAN ", "ARTSTYLE_EUROPEAN"),
-    "Mediterranean": ("_MED", "MEDITERRANEAN ", "ARTSTYLE_GRECO_ROMAN"),
-    "Middle Eastern": ("_MED", "MEDITERRANEAN ", "ARTSTYLE_MIDDLE_EAST"),
-    "African": ("_AFRI", "AFRICAN ", "ARTSTYLE_MIDDLE_EAST"),
-    "Asian": ("_ASIA", "ASIAN ", "ARTSTYLE_ASIAN"),
-    "American": ("_AMER", "AMERICAN ", "ARTSTYLE_SOUTH_AMERICA"),
-    "Polynesian": ("_AMER", "AMERICAN ", "ARTSTYLE_POLYNESIAN"),
-}
+from .artstyle import ARTSTYLES
 
 FLAVORS_COMMON = {
     "FLAVOR_EXPANSION": 0,
@@ -67,7 +58,7 @@ def citystate(
             "ShortDescription": name,
             "Adjective": adj,
             "Civilopedia": pedia,
-            "DefaultPlayerColor": color(data["color"], f"MINOR_COLOR_{key}"), # TODO
+            "DefaultPlayerColor": color(data["color"], f"MINOR_COLOR_{key}"),
             "ArtDefineTag": "ART_DEF_CIVILIZATION_MINOR",
             "ArtStyleType": artstyle,
             "ArtStyleSuffix": suffix,
