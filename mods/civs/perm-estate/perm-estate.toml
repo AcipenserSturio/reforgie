@@ -9,8 +9,30 @@ religion = "Eastern Orthodoxy"
 pedia = """This is a text about Perm in Civilopedia!"""
 dom = """This is a very long DOM text!"""
 
-cities = ["Chusovoy", "Oryol-Gorodok", "Novoye Usolye", "Ochor", "Sylva", "Lenva", "Yegoshikha", "Verkhniye Mully", "Lys'va", "Yaz'va", "Nizhniye Mully", "Domryanka"]
-spies = ["Yermak", "Spiridon", "Koz'ma", "Luka", "Fyodor", "Semyon", "Osip", "Anika"]
+cities = [
+    "Chusovoy",
+    "Oryol-Gorodok",
+    "Novoye Usolye",
+    "Ochor",
+    "Sylva",
+    "Lenva",
+    "Yegoshikha",
+    "Verkhniye Mully",
+    "Lys'va",
+    "Yaz'va",
+    "Nizhniye Mully",
+    "Domryanka",
+]
+spies = [
+    "Yermak",
+    "Spiridon",
+    "Koz'ma",
+    "Luka",
+    "Fyodor",
+    "Semyon",
+    "Osip",
+    "Anika",
+]
 
 [art]
 civ = "civ.png"
