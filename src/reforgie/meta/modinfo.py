@@ -17,10 +17,10 @@ class ModinfoXml:
 
         mod.append(ET.fromstring("""
             <Properties>
-                <Name>(Reforged) Religion Pack</Name>
+                <Name>(Reforged) Civ Pack</Name>
                 <Stability>Beta</Stability>
-                <Teaser>Very modular pack, adding (2) new religions to the game.</Teaser>
-                <Description>Very modular pack, adding (2) new religions to the game.</Description>
+                <Teaser>Very modular pack, adding (1) new civ to the game.</Teaser>
+                <Description>Very modular pack, adding (1) new civ to the game.</Description>
                 <Authors>AcipenserSturio</Authors>
                 <HideSetupGame>0</HideSetupGame>
                 <AffectsSavedGames>1</AffectsSavedGames>

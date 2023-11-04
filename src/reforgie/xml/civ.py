@@ -63,6 +63,31 @@ def civ(
         }
     )
 
+    gamedata.add(
+        "Civilization_FreeBuildingClasses",
+        {
+            "CivilizationType": f"CIVILIZATION_{key}",
+            "BuildingClassType": "BUILDINGCLASS_PALACE",
+        }
+    )
+
+    gamedata.add(
+        "Civilization_FreeTechs",
+        {
+            "CivilizationType": f"CIVILIZATION_{key}",
+            "TechType": "TECH_AGRICULTURE",
+        }
+    )
+
+    gamedata.add(
+        "Civilization_FreeUnits",
+        {
+            "CivilizationType": f"CIVILIZATION_{key}",
+            "UnitClassType": "UNITCLASS_SETTLER",
+            "UnitAIType": "UNITAI_SETTLE",
+            "Count": 1,
+        }
+    )
     for index, cityname in enumerate(data["civ"]["cities"]):
         gamedata.add(
             "Civilization_CityNames",
